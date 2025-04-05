@@ -529,6 +529,56 @@ class PermissionsTableSeeder extends Seeder
                 'display_name' => 'Delete Project',
                 'parent_id' => 48,
             ),
+            51 =>
+            array (
+                'id' => 53,
+                'name' => 'brands',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:18:23',
+                'display_name' => 'Brands',
+                'parent_id' => NULL,
+            ),
+            52 =>
+            array (
+                'id' => 54,
+                'name' => 'brands-view',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:33:23',
+                'display_name' => 'All Brands',
+                'parent_id' => 53,
+            ),
+            53 =>
+            array (
+                'id' => 55,
+                'name' => 'brands-store',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:33:07',
+                'display_name' => 'Add / Edit Brand',
+                'parent_id' => 53,
+            ),
+            54 =>
+            array (
+                'id' => 56,
+                'name' => 'brands-status',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:32:58',
+                'display_name' => 'Change Status Brand',
+                'parent_id' => 53,
+            ),
+            55 =>
+            array (
+                'id' => 57,
+                'name' => 'brands-delete',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:32:47',
+                'display_name' => 'Delete Brand',
+                'parent_id' => 53,
+            ),
         ));
 
 

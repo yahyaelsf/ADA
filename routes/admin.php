@@ -95,12 +95,19 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::post('programs', [ProgramController::class, 'store'])->name('programs.store')->can('programs-store');
     Route::delete('programs/{program}', [ProgramController::class, 'destroy'])->name('programs.delete')->can('programs-delete');
 
-     Route::get('projects/data', [ProjectController::class, 'datatable'])->name('projects.data')->can('projects-view');
+    Route::get('projects/data', [ProjectController::class, 'datatable'])->name('projects.data')->can('projects-view');
     Route::get('projects/form', [ProjectController::class, 'form'])->name('projects.form')->can('projects-store');
     Route::get('projects/update_status', [ProjectController::class, 'updateStatus'])->name('projects.status')->can('projects-status');
     Route::get('projects', [ProjectController::class, 'index'])->name('projects.index')->can('projects-view');
     Route::post('projects', [ProjectController::class, 'store'])->name('projects.store')->can('projects-store');
     Route::delete('projects/{project}', [ProjectController::class, 'destroy'])->name('projects.delete')->can('projects-delete');
+
+    Route::get('brands/data', [BrandController::class, 'datatable'])->name('brands.data')->can('brands-view');
+    Route::get('brands/form', [BrandController::class, 'form'])->name('brands.form')->can('brands-store');
+    Route::get('brands/update_status', [BrandController::class, 'updateStatus'])->name('brands.status')->can('brands-status');
+    Route::get('brands', [BrandController::class, 'index'])->name('brands.index')->can('brands-view');
+    Route::post('brands', [BrandController::class, 'store'])->name('brands.store')->can('brands-store');
+    Route::delete('brands/{brand}', [BrandController::class, 'destroy'])->name('brands.delete')->can('brands-delete');
 
 
     Route::get('users/data', [UserController::class, 'datatable'])->name('users.data')->can('users-view');
