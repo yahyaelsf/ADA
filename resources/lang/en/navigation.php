@@ -31,6 +31,8 @@ return [
     'articles' => 'Articles',
     'activities' => 'Activities',
     'programs' => 'Programs',
-    'projects' => 'Projects'
+    'projects' => 'Projects',
+    'vedios' => 'Vedios',
+    'partners'=> 'Partners'
 
 ];

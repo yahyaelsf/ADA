@@ -1,4 +1,6 @@
 @extends('admin.layouts.dashboard')
+@push('css')
+@endpush
 @section('content')
     <div class="kt-portlet kt-portlet--mobile">
         <div class="kt-portlet__head kt-portlet__head--lg">
@@ -7,13 +9,13 @@
                     <i class="kt-font-brand fa fa-list"></i>
                 </span>
                 <h3 class="kt-portlet__head-title">
-                    @lang('navigation.partners')
+                    @lang('navigation.vedios')
                 </h3>
             </div>
             <div class="kt-portlet__head-toolbar">
                 <div class="kt-portlet__head-wrapper">
                     <div class="kt-portlet__head-actions">&nbsp;
-                        @can('brands-store')
+                        @can('vedios-store')
                             <a onclick="openModal()" class="btn text-white btn-brand btn-elevate btn-icon-sm">
                                 <i class="la la-plus"></i>
                                 @lang('buttons.add_new')
@@ -24,7 +26,7 @@
             </div>
         </div>
         <div class="kt-portlet__body">
-           <form class="report-form" id="filterForm">
+            <form class="report-form" id="filterForm">
                 <div class="row">
 
                     <div class="col-md-2">
@@ -65,14 +67,14 @@
             </form>
             <table class="table table-striped- table-bordered table-hover table-checkable" id="datatable">
                 <thead>
-                <tr>
-                    <th>#</th>
-                    <th width="40%">@lang('general.title')</th>
-                    <th>@lang('general.created_at')</th>
-                    <th>@lang('general.updated_at')</th>
-                    <th>@lang('general.status')</th>
-                    <th>@lang('general.options')</th>
-                </tr>
+                    <tr>
+                        <th>#</th>
+                        <th width="40%">@lang('general.title')</th>
+                         <th>Watch Vedio</th>
+                        <th>@lang('general.created_at')</th>
+                        <th>@lang('general.status')</th>
+                        <th>@lang('general.options')</th>
+                    </tr>
                 </thead>
             </table>
         </div>
@@ -81,7 +83,6 @@
 
 
 @push('js')
-
     <script>
         const table = $('#datatable');
         table.DataTable({
@@ -89,59 +90,78 @@
             searchDelay: 500,
             processing: true,
             serverSide: true,
-            ajax: '{{ route('admin.brands.data') }}',
-            columns: [
-                {data: 'pk_i_id'},
-                {data: 's_title', name: 'translations.s_title'},
-                {data: 'dt_created_date'},
-                {data: 'dt_modified_date'},
-                {data: 'enabled_html', searchable: false, sortable: false, visible: {{ (int) auth()->user()->can('brands-status') }}},
+            ajax: '{{ route('admin.vedios.data') }}',
+            columns: [{
+                    data: 'pk_i_id'
+                },
+                {
+                    data: 's_title',
+                    name: 'translations.s_title'
+                },
+                {
+                    data: 'video_column',
+                    searchable: false,
+                    sortable: false,
+                },
+                {
+                    data: 'dt_created_date'
+                },
+                {
+                    data: 'enabled_html',
+                    searchable: false,
+                    sortable: false,
+                    visible: {{ (int) auth()->user()->can('vedios-status') }}
+                },
                 {
                     data: 'actions_column',
                     searchable: false,
                     sortable: false,
                     responsivePriority: -1,
-                    visible: {{ (int) (auth()->user()->can('brands-store') || auth()->user()->can('brands-delete')) }}
+                    visible: {{ (int) (auth()->user()->can('vedios-store') || auth()->user()->can('vedios-delete')) }}
                 },
             ]
         });
 
 
         function openModal(id = '') {
-            $.get('{{ route('admin.brands.form') }}?id=' + id, function (data) {
+            $.get('{{ route('admin.vedios.form') }}?id=' + id, function(data) {
                 let modal = $('#form-modal');
                 modal.find('.modal-title').html(data.title);
                 modal.find('.modal-body').html(data.page);
 
                 let modalForm = $('#form-modal form');
 
-                var KTAvatarDemo = function () {
+                var KTAvatarDemo = function() {
                     // Private functions
-                    var initDemos = function () {
+                    var initDemos = function() {
                         var avatar1 = new KTAvatar('kt_user_avatar_1');
                     }
 
                     return {
-                        init: function () {
+                        init: function() {
                             initDemos();
                         }
                     };
                 }();
 
-                KTUtil.ready(function () {
+                KTUtil.ready(function() {
                     KTAvatarDemo.init();
+                });
+                $('.summernote').summernote({
+                    height: 300,
+                    stripTags: true
                 });
 
 
                 const submitButton = modalForm.find(':button[type=submit]');
                 const spinnerClasses = "kt-spinner kt-spinner--left kt-spinner--sm kt-spinner--light";
 
-                modalForm.submit(function (e) {
+                modalForm.submit(function(e) {
                     e.preventDefault();
                     submitButton.prop('disabled', true);
                     submitButton.addClass(spinnerClasses);
                 }).validate({
-                    submitHandler: function (form) {
+                    submitHandler: function(form) {
                         const data = new FormData(form);
                         const action = $('form').attr('action');
 
@@ -152,16 +172,20 @@
                             contentType: false,
                             cache: false,
                             processData: false,
-                            success: function (data) {
+                            success: function(data) {
                                 console.log(data);
 
                                 if (data.success) {
                                     modal.modal('hide');
                                     $('#datatable').DataTable().ajax.reload(null, false);
-                                    $('form').find("input[type=text],input[type=file],textarea").val("");
+                                    $('form').find(
+                                            "input[type=text],input[type=file],textarea")
+                                        .val("");
                                     $('form').validate().resetForm();
                                     $('form').find('form-group').removeClass('has-error');
-                                    toastr.success(data.message, {timeOut: 5000});
+                                    toastr.success(data.message, {
+                                        timeOut: 5000
+                                    });
                                     $('#validation-errors').empty();
                                 } else {
                                     validationErrors(data.errors);
@@ -177,6 +201,6 @@
             });
 
         }
-
     </script>
+
 @endpush

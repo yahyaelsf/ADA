@@ -35,6 +35,7 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\VedioController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -102,13 +103,20 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::post('projects', [ProjectController::class, 'store'])->name('projects.store')->can('projects-store');
     Route::delete('projects/{project}', [ProjectController::class, 'destroy'])->name('projects.delete')->can('projects-delete');
 
-    Route::get('brands/data', [BrandController::class, 'datatable'])->name('brands.data')->can('brands-view');
-    Route::get('brands/form', [BrandController::class, 'form'])->name('brands.form')->can('brands-store');
-    Route::get('brands/update_status', [BrandController::class, 'updateStatus'])->name('brands.status')->can('brands-status');
-    Route::get('brands', [BrandController::class, 'index'])->name('brands.index')->can('brands-view');
-    Route::post('brands', [BrandController::class, 'store'])->name('brands.store')->can('brands-store');
-    Route::delete('brands/{brand}', [BrandController::class, 'destroy'])->name('brands.delete')->can('brands-delete');
+    Route::get('partners/data', [BrandController::class, 'datatable'])->name('brands.data')->can('brands-view');
+    Route::get('partners/form', [BrandController::class, 'form'])->name('brands.form')->can('brands-store');
+    Route::get('partners/update_status', [BrandController::class, 'updateStatus'])->name('brands.status')->can('brands-status');
+    Route::get('partners', [BrandController::class, 'index'])->name('brands.index')->can('brands-view');
+    Route::post('partners', [BrandController::class, 'store'])->name('brands.store')->can('brands-store');
+    Route::delete('partners/{brand}', [BrandController::class, 'destroy'])->name('brands.delete')->can('brands-delete');
 
+    Route::get('vedios/data', [VedioController::class, 'datatable'])->name('vedios.data')->can('vedios-view');
+    Route::get('vedios/form', [VedioController::class, 'form'])->name('vedios.form')->can('vedios-store');
+    Route::get('vedios/update_status', [VedioController::class, 'updateStatus'])->name('vedios.status')->can('vedios-status');
+    Route::get('vedios/update_free', [VedioController::class, 'updateFree'])->name('vedios.free')->can('vedios-status');
+    Route::get('vedios', [VedioController::class, 'index'])->name('vedios.index')->can('vedios-view');
+    Route::post('vedios', [VedioController::class, 'store'])->name('vedios.store')->can('vedios-store');
+    Route::delete('vedios/{vedio}', [VedioController::class, 'destroy'])->name('vedios.delete')->can('vedios-delete');
 
     Route::get('users/data', [UserController::class, 'datatable'])->name('users.data')->can('users-view');
     Route::get('users/form', [UserController::class, 'form'])->name('users.form')->can('users-store');

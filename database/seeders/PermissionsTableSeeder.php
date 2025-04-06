@@ -579,6 +579,56 @@ class PermissionsTableSeeder extends Seeder
                 'display_name' => 'Delete Brand',
                 'parent_id' => 53,
             ),
+            56 =>
+            array (
+                'id' => 58,
+                'name' => 'vedios',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:18:23',
+                'display_name' => 'Vedios',
+                'parent_id' => NULL,
+            ),
+            57 =>
+            array (
+                'id' => 59,
+                'name' => 'vedios-view',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:33:23',
+                'display_name' => 'All Vedios',
+                'parent_id' => 58,
+            ),
+            58 =>
+            array (
+                'id' => 60,
+                'name' => 'vedios-store',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:33:07',
+                'display_name' => 'Add / Edit Vedio',
+                'parent_id' => 58,
+            ),
+            59 =>
+            array (
+                'id' => 61,
+                'name' => 'vedios-status',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:32:58',
+                'display_name' => 'Change Status Vedio',
+                'parent_id' => 58,
+            ),
+            60 =>
+            array (
+                'id' => 62,
+                'name' => 'vedios-delete',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:32:47',
+                'display_name' => 'Delete Vedio',
+                'parent_id' => 58,
+            ),
         ));
 
 

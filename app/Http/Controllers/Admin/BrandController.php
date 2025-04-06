@@ -19,8 +19,8 @@ class BrandController extends Controller
 
     public function index()
     {
-        $pageTitle = trans('navigation.brands');
-        $pageDescription = trans('navigation.brands');
+        $pageTitle = trans('navigation.partners');
+        $pageDescription = trans('navigation.partners');
 
         return view('admin.brands.index', compact('pageTitle', 'pageDescription'));
     }
