@@ -43,7 +43,14 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     Route::get('/', HomeController::class)->name('home');
 
+    Route::get('slider/data', [SliderController::class, 'datatable'])->name('slider.data')->can('slider-view');
+    Route::get('slider/form', [SliderController::class, 'form'])->name('slider.form')->can('slider-store');
+    Route::get('slider/update_status', [SliderController::class, 'updateStatus'])->name('slider.status')->can('slider-status');
+    Route::get('slider', [SliderController::class, 'index'])->name('slider.index')->can('slider-view');
+    Route::post('slider', [SliderController::class, 'store'])->name('slider.store')->can('slider-store');
+    Route::delete('slider/{slider}', [SliderController::class, 'destroy'])->name('slider.delete')->can('slider-delete');
 
+    
     Route::get('admins/data', [AdminController::class, 'datatable'])->name('admins.data')->can('admins-view');
     Route::get('admins/form', [AdminController::class, 'form'])->name('admins.form')->can('admins-store');
     Route::get('admins/update_status', [AdminController::class, 'updateStatus'])->name('admins.status')->can('admins-status');

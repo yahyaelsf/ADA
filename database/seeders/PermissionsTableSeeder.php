@@ -629,6 +629,56 @@ class PermissionsTableSeeder extends Seeder
                 'display_name' => 'Delete Vedio',
                 'parent_id' => 58,
             ),
+            61 =>
+            array (
+                'id' => 63,
+                'name' => 'slider',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:18:23',
+                'display_name' => 'Sliders',
+                'parent_id' => NULL,
+            ),
+            62 =>
+            array (
+                'id' => 64,
+                'name' => 'slider-view',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:33:23',
+                'display_name' => 'All Sliders',
+                'parent_id' => 63,
+            ),
+            63 =>
+            array (
+                'id' => 65,
+                'name' => 'slider-store',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:33:07',
+                'display_name' => 'Add / Edit Slider',
+                'parent_id' => 63,
+            ),
+            64 =>
+            array (
+                'id' => 66,
+                'name' => 'slider-status',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:32:58',
+                'display_name' => 'Change Status Slider',
+                'parent_id' => 63,
+            ),
+            65 =>
+            array (
+                'id' => 67,
+                'name' => 'slider-delete',
+                'guard_name' => 'admin',
+                'created_at' => '2021-12-15 11:18:23',
+                'updated_at' => '2021-12-15 11:32:47',
+                'display_name' => 'Delete Slider',
+                'parent_id' => 63,
+            ),
         ));
 
 
