@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class Vedio extends LocalizableModel
 {
     protected $table = "t_vedios";
-    protected $fillable = ['s_title','s_vedio' , 's_cover'];
+    protected $fillable = ['s_title','s_vedio','s_link' , 's_cover'];
     protected $localizable = ['s_title'];
 
-    
+
 
 }

@@ -10,7 +10,7 @@
     </x-localizable-inputs>
 
     <div class="row">
-        
+
 
         <div class="col-md-12">
             <div class="form-group">
@@ -19,7 +19,14 @@
             </div>
         </div>
     </div>
-
+       <div class="row">
+        <div class="col-md-12">
+                <div class="form-group">
+                    <label class="form-control-label">@lang('general.link'):</label>
+                    <input name="s_link" value="{{ $vedio->s_link ?? '' }}" type="text" class="form-control">
+                </div>
+        </div>
+    </div>
     <div class="row">
         <div class="form-group">
             <div class="col-lg-12 col-xl-12">

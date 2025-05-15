@@ -28,18 +28,14 @@ class StoreVedioRequest extends BaseFormRequest
         $rules = [
             's_cover' => [
                 'image',
-                Rule::requiredIf(function () {
-                    return !$this->filled('pk_i_id');
-                }),
+                'nullable',
                 'max:' . $this->imageMaxSize
             ],
             's_vedio' => [
                 'file',
-                Rule::requiredIf(function () {
-                    return !$this->filled('pk_i_id');
-                }),
+                'nullable'
             ],
-           
+           's_link' => 'url|nullable'
         ];
 
 

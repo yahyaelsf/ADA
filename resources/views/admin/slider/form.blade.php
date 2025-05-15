@@ -10,14 +10,14 @@
     </x-localizable-inputs>
 
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-md-12">
                 <div class="form-group">
                     <label class="form-control-label">@lang('general.link'):</label>
                     <input name="s_link" value="{{ $slider->s_link ?? '' }}" type="text" class="form-control">
                 </div>
         </div>
-    </div>
+    </div> --}}
 
 
 

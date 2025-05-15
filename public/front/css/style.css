@@ -1,0 +1,51 @@
+/* About Us */
+@media (max-width: 767px) {
+  .hide-bg-small {
+    background-image: none !important;
+  }
+  .btnChange {
+    margin-left: 0px !important;
+    margin-top: 10px !important;
+  }
+  .two-section {
+    padding: 0 !important;
+  }
+  p {
+    margin-left: 20px !important;
+    margin-top: 50px !important;
+  }
+
+  #value .btnChange,
+  #vision .btnChange {
+    margin-bottom: 15px !important;
+  }
+  #value ul {
+    margin: 0 25px !important;
+  }
+  #vision {
+    margin: auto;
+  }
+  #about-us p {
+    margin: 0 10px !important;
+  }
+}
+@media (min-width: 768px) {
+  button {
+    margin-bottom: 25px !important;
+  }
+}
+/* Value page */
+.styled-list {
+  list-style: none !important;
+  padding-left: 0;
+}
+.palm-list li {
+  list-style-image: url("../imges/palm.png");
+}
+
+.flower-list li {
+  list-style-image: url("../imges/flower.png");
+}
+.palm-list li {
+  margin-top: -8px !important;
+}

@@ -5,6 +5,7 @@ use App\Http\Controllers\Front\CalendarController;
 use App\Http\Controllers\Front\CompanyController;
 use App\Http\Controllers\Front\CountTakeoffController;
 use App\Http\Controllers\Front\EstimateController;
+use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\LibraryController;
 use App\Http\Controllers\Front\LinearTakeoffController;
 use App\Http\Controllers\Front\PlanTakeoffController;
@@ -26,9 +27,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/img/{path}', [ImageServiceController::class, 'show'])->where('path', '.*');;
-Route::get('/', function(){
-    return view('welcome');
-})->name('home');
+Route::get('/', [HomeController::class , 'home'])->name('front.home');
+Route::get('/about-us', [HomeController::class , 'about'])->name('front.about');
+Route::get('/vision', [HomeController::class , 'vision'])->name('front.vision');
+Route::get('/mission', [HomeController::class , 'mission'])->name('front.mission');
+Route::get('/value', [HomeController::class , 'value'])->name('front.value');
+Route::get('/news', [HomeController::class , 'news'])->name('front.news');
+Route::get('/article', [HomeController::class , 'article'])->name('front.article');
+Route::get('/project', [HomeController::class , 'project'])->name('front.project');
+Route::get('/program', [HomeController::class , 'program'])->name('front.program');
+Route::get('/governance', [HomeController::class , 'governance'])->name('front.governance');
+Route::get('/board-of-directore', [HomeController::class , 'boardOfDirectore'])->name('front.boardOfDirectore');
+Route::get('/partners', [HomeController::class , 'partners'])->name('front.partners');
 
 
 

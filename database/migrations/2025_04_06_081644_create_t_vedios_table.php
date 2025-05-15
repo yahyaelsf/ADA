@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('t_vedios', function (Blueprint $table) {
             $table->id('pk_i_id');
             $table->string('s_title')->nullable();
-            $table->string('s_cover');
-            $table->string('s_vedio');
+            $table->string('s_cover')->nullable();
+            $table->string('s_link')->nullable();
+            $table->string('s_vedio')->nullable();
             $table->boolean('b_enabled')->default(1);
             $table->timestamp('dt_created_date')->nullable();
             $table->timestamp('dt_modified_date')->nullable();

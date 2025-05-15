@@ -29,7 +29,6 @@ class StoreArticleRequest extends BaseFormRequest
                 Rule::requiredIf(function () {
                     return !$this->filled('pk_i_id');
                 }),
-                'max:' . $this->imageMaxSize
             ],
         ];
 
